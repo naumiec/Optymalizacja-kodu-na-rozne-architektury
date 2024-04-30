@@ -1,0 +1,34 @@
+Ćwiczenie 2.1
+1. Zwykły: Time: 120.584
+2. Z -O2: Time: 72.1703
+Ćwiczenie 2.2
+3. Zamiana operatora kopiującego na modyfikującego (x = x + y na x += y): Time: 22.2289
+4. Z -O2: Time: 1.88051
+Ćwiczenie 2.3
+5. Z reserve(): Time: 22.3557
+6. Z -O2: Time: 1.8854
+Ćwiczenie 2.4
+7. Przekazanie przez referencję: Time: 25.7178
+8. Z -O2: Time: 2.04309
+Ćwiczenie 2.5
+9. Iterator: Time: 9.43559
+10. Z -O2: Time: 1.70267
+Ćwiczenie 2.6
+11. Referencja na result: Time: Time: 9.32845
+12: Z -O2: Time: 1.7821
+Ćwiczenie 2.7
+13. String na char*: Time: 1.21786
+14. Z -O2: Time: 0.262069
+Ćwiczenie 2.8
+15. Lepszy algorytm: Time: 18.732
+16. Z -O2: Time: 8.24475
+Ćwiczenie 2.9
+17. Prealokacja: Time: 7.78493
+18. Z -O2: Time: 0.748341
+Ćwiczenie 2.10
+19. Referencja zamiast kopiowania: Time: 9.99201
+20. Z -O2: Time: 0.741565
+Ćwiczenie 2.11
+21. Bare metal: Time: 1.27868
+22. Z -O2: Time: 0.470764
+
