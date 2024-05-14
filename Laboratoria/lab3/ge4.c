@@ -5,6 +5,11 @@
 #include <sys/time.h>
 #include <time.h>
 
+// max macro
+#define max(a,b) ((a) > (b) ? (a) : (b))
+// block size
+#define BLKSIZE 8
+
 static double gtod_ref_time_sec = 0.0;
 
 /* Adapted from the bl2_clock() routine in the BLIS library */
@@ -23,12 +28,36 @@ double dclock()
 
 int ge(double **A, int SIZE)
 {
-  int i,j,k;
+  register int i,j,k;
+  double multiplier;
   for (k = 0; k < SIZE; k++) { 
     for (i = k+1; i < SIZE; i++) { 
-      for (j = k+1; j < SIZE; j++) { 
-         A[i][j] = A[i][j] - A[k][j] * (A[i][k] / A[k][k]);
-      } 
+      multiplier = A[i][k] / A[k][k];
+
+      for (j = k+1; j < SIZE; ) { 
+        if (j < (max(SIZE - BLKSIZE, 0))) {
+          /*
+          for (int l = j; l < j+BLKSIZE; l++) {
+            A[i][l] = A[i][l] - A[k][l] * multiplier;
+          }
+          j += BLKSIZE;
+          */
+          A[i][j] = A[i][j] - A[k][j] * multiplier;
+          A[i][j+1] = A[i][j+1] - A[k][j+1] * multiplier;
+          A[i][j+2] = A[i][j+2] - A[k][j+2] * multiplier;
+          A[i][j+3] = A[i][j+3] - A[k][j+3] * multiplier;
+          A[i][j+4] = A[i][j+4] - A[k][j+4] * multiplier;
+          A[i][j+5] = A[i][j+5] - A[k][j+5] * multiplier;
+          A[i][j+6] = A[i][j+6] - A[k][j+6] * multiplier;
+          A[i][j+7] = A[i][j+7] - A[k][j+7] * multiplier;
+          j += BLKSIZE;
+        }
+        else {
+          A[i][j] = A[i][j] - A[k][j] * multiplier;
+          j++;
+        }
+      }
+      
     }
   }
   return 0;
@@ -36,11 +65,10 @@ int ge(double **A, int SIZE)
 
 int main( int argc, const char *argv[] )
 {
-  int i,j,k,iret;
+  register int i,j,k,iret;
   double dtime;
   int SIZE = 1500;
 
-  //double matrix[SIZE][SIZE]; // TODO - make near optimal dynamic allocation
   double **matrix = (double **)malloc(SIZE * sizeof(double *));
   for (i = 0; i < SIZE; i++) {
     matrix[i] = (double *)malloc(SIZE * sizeof(double));

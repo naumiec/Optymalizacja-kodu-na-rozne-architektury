@@ -1,0 +1,56 @@
+Ćwiczenie 2.1 - Dynamiczna alokacja pamięci
+call GETime: 7.950210e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.2 - Iteratory pętli w rejestrach
+call GETime: 7.933867e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.3 - Umieszczenie w rejestrze powtarzającą się w najbardziej zagnieżdżonym miejscu wartość
+call GETime: 4.713648e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.4 - Rozwinięcie najbardziej zagnieżdżonej pętli do 8 iteracji
+call GETime: 4.186662e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.5 - Macierz jednowymiarowa indeksowana przez makro
+call GETime: 4.154559e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.6 - Operacje wektorowe SSE3
+call GETime: 5.779565e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.7 - 256-bitowe operacje wektorowe AVX
+call GETime: 3.164348e+00 
+Check: -5.649323e+16 
+
+Ćwiczenie 2.8 - Opcja optymalizacji -O2 oraz test opcji -march=native i -mfma
+2.1
+call GETime: 1.971240e+00 
+Check: -5.649323e+16 
+2.2
+call GETime: 1.976203e+00 
+Check: -5.649323e+16 
+2.3
+call GETime: 7.910720e-01 
+Check: -5.649323e+16 
+2.4
+call GETime: 1.116268e+00 
+Check: -5.649323e+16 
+2.5
+call GETime: 1.256672e+00 
+Check: -5.649323e+16 
+2.6
+call GETime: 1.028300e+00 
+Check: -5.649323e+16 
+2.7 -mavx -O2
+call GETime: 7.722020e-01 
+Check: -5.649323e+16
+2.7 -mavx -O2 -march=native
+call GETime: 6.924730e-01 
+Check: -5.649323e+16 
+2.7 -mavx -O2 -march=native -mfma 
+call GETime: 7.125200e-01 
+Check: -5.649323e+16 

@@ -23,7 +23,7 @@ double dclock()
 
 int ge(double **A, int SIZE)
 {
-  int i,j,k;
+  register int i,j,k;
   for (k = 0; k < SIZE; k++) { 
     for (i = k+1; i < SIZE; i++) { 
       for (j = k+1; j < SIZE; j++) { 
@@ -36,11 +36,10 @@ int ge(double **A, int SIZE)
 
 int main( int argc, const char *argv[] )
 {
-  int i,j,k,iret;
+  register int i,j,k,iret;
   double dtime;
   int SIZE = 1500;
 
-  //double matrix[SIZE][SIZE]; // TODO - make near optimal dynamic allocation
   double **matrix = (double **)malloc(SIZE * sizeof(double *));
   for (i = 0; i < SIZE; i++) {
     matrix[i] = (double *)malloc(SIZE * sizeof(double));
